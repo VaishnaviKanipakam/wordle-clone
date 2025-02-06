@@ -5,20 +5,43 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    background-color: #000000;
     font-family: cursive;
+}
+
+.Light_background{
+    background-color: #F5F5F7;
+}
+
+.dark-background{
+    background-color: #000000;
+}
+
+.light-moon{
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.dark-moon{
+    color: #000000;
+    font-size: 25px;
 }
 
 .Success-heading{
     font-size: 40px;
     font-weight: bold;
+}
+
+.light-heading{
     color: #ffffff;
+}
+
+.dark-heading{
+    color: #000000;
 }
 
 .success-icon{
     font-size: 40px;
     font-weight: bold;
-    color: #ffffff;
 }
 
 .success-image{
@@ -28,9 +51,7 @@
 
 .success-button{
     background-color: transparent;
-    border: 1.5px solid #ffffff;
     padding: 10px;
-    color: #ffffff;
     outline: none;
     cursor: pointer;
     font-size: 12px;
@@ -38,6 +59,16 @@
     border-radius: 6px;
     margin-top: 30px;
     font-family: cursive;
+}
+
+.light-restart-button{
+    border: 1.5px solid #ffffff;
+    color: #ffffff;
+}
+
+.dark-restart-button{
+    border: 1.5px solid #000000;
+    color: #000000;
 }
 
 @media screen and (max-width: 575px){

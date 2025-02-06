@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { FaMoon } from "react-icons/fa";
+import { MdOutlineWbSunny } from "react-icons/md";
+
 
 import './index.css'
 
@@ -21,39 +24,47 @@ const wordsList = [
 ]
 
 export class Home extends Component {
-    state = {
-            firstWordFirstLetter: '',
-            firstWordSecondLetter: '',
-            firstWordThirdLetter: '',
-            firstWordFourthLetter: '',
-            firsWordFifthLetter: '',
+    constructor(props){
+        super(props)
+            this.state = {
+                firstWordFirstLetter: '',
+                firstWordSecondLetter: '',
+                firstWordThirdLetter: '',
+                firstWordFourthLetter: '',
+                firsWordFifthLetter: '',
 
-            secondWordFirstLetter: '',
-            secondWordSecondLetter:'',
-            secondWordThirdLetter: '',
-            secondWordFourthLetter: '',
-            secondWordFifthLetter: '',
+                secondWordFirstLetter: '',
+                secondWordSecondLetter:'',
+                secondWordThirdLetter: '',
+                secondWordFourthLetter: '',
+                secondWordFifthLetter: '',
 
-            thirdWordFirstLetter: '',
-            thirdWordSecondLetter: '',
-            thirdWordThirdLetter: '',
-            thirdWordFourthLetter: '',
-            thirdWordFifthLetter: '',
+                thirdWordFirstLetter: '',
+                thirdWordSecondLetter: '',
+                thirdWordThirdLetter: '',
+                thirdWordFourthLetter: '',
+                thirdWordFifthLetter: '',
 
-            fourthWordFirstLetter: '',
-            fourthWordSecondLetter: '',
-            fourthWordThirdLetter: '',
-            fourthWordFourthLetter: '',
-            fourthWordFifthLetter: '',
+                fourthWordFirstLetter: '',
+                fourthWordSecondLetter: '',
+                fourthWordThirdLetter: '',
+                fourthWordFourthLetter: '',
+                fourthWordFifthLetter: '',
 
-            fifthWordFirstLetter: '',
-            fifthWordSecondLetter: '',
-            fifthWordThirdLetter: '',
-            fifthWordFourthLetter: '',
-            fifthWordFifthLetter: '',
-            count: 6,
-            toggleButton: true
-    }
+                fifthWordFirstLetter: '',
+                fifthWordSecondLetter: '',
+                fifthWordThirdLetter: '',
+                fifthWordFourthLetter: '',
+                fifthWordFifthLetter: '',
+                toggleButton: true,
+                count: 6,
+        }
+}
+
+
+onToggleButton = () => {
+    this.setState((prevState) => ({toggleButton: !prevState.toggleButton}))
+}
 
     onChangeFirstWordFirstLetter = event => {
         this.setState({firstWordFirstLetter: event.target.value})
@@ -75,11 +86,11 @@ export class Home extends Component {
         this.setState({firsWordFifthLetter: event.target.value})
     }
 
-   
 
    renderFirstWordFirstLetterField = () => {
-        const {firstWordFirstLetter} = this.state
+        const {firstWordFirstLetter, toggleButton} = this.state
         let backgroundClassName = 'transparent-background'
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         if (firstWordFirstLetter.toLocaleLowerCase() === wordsList[0].firstWord[0]){
 
              backgroundClassName = 'green-backkground'
@@ -91,7 +102,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFirstWordFirstLetter}
                     value={firstWordFirstLetter}
                     type='text'
@@ -102,7 +113,8 @@ export class Home extends Component {
 
 
     renderFirstWordSecondLetterField = () => {
-        const {firstWordSecondLetter} = this.state
+        const {firstWordSecondLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (firstWordSecondLetter.toLocaleLowerCase() === wordsList[0].firstWord[1]){
             backgroundClassName = 'green-backkground'
@@ -114,7 +126,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFirstWordSecondLetter}
                     value={firstWordSecondLetter}
                     type='text'
@@ -125,7 +137,8 @@ export class Home extends Component {
 
     
     renderFirstWordThirdLetterField = () => {
-        const {firstWordThirdLetter} = this.state
+        const {firstWordThirdLetter, toggleButton} = this.state
+         const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (firstWordThirdLetter.toLocaleLowerCase() === wordsList[0].firstWord[2]){
             backgroundClassName = 'green-backkground'
@@ -137,7 +150,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFirstWordThirdLetter}
                     value={firstWordThirdLetter}
                     type='text'
@@ -148,7 +161,8 @@ export class Home extends Component {
 
 
     renderFirstWordFourthLetterField = () => {
-        const {firstWordFourthLetter} = this.state
+        const {firstWordFourthLetter, toggleButton} = this.state
+         const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (firstWordFourthLetter.toLocaleLowerCase() === wordsList[0].firstWord[3]){
             backgroundClassName = 'green-backkground'
@@ -160,7 +174,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFirstWordFourthLetter}
                     value={firstWordFourthLetter}
                     type='text'
@@ -170,7 +184,8 @@ export class Home extends Component {
     }
 
     renderFirstWordFifthLetterField = () => {
-        const {firsWordFifthLetter} = this.state
+        const {firsWordFifthLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (firsWordFifthLetter.toLocaleLowerCase() === wordsList[0].firstWord[4]){
             backgroundClassName = 'green-backkground'
@@ -182,7 +197,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFirstWordFifthLetter}
                     value={firsWordFifthLetter}
                     type='text'
@@ -213,7 +228,8 @@ export class Home extends Component {
 
 
     renderSecondWordFirstLetterField = () => {
-        const {secondWordFirstLetter} = this.state
+        const {secondWordFirstLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (secondWordFirstLetter.toLocaleLowerCase() === wordsList[1].secondWord[0]){
             backgroundClassName = 'green-backkground'
@@ -225,7 +241,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeSecondWordFirstLetter}
                     value={secondWordFirstLetter}
                     type='text'
@@ -236,7 +252,8 @@ export class Home extends Component {
 
 
     renderSecondWordSecondLetterField = () => {
-        const {secondWordSecondLetter} = this.state
+        const {secondWordSecondLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (secondWordSecondLetter.toLocaleLowerCase() === wordsList[1].secondWord[1]){
             backgroundClassName = 'green-backkground'
@@ -248,7 +265,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeSecondWordSecondLetter}
                     value={secondWordSecondLetter}
                     type='text'
@@ -259,7 +276,8 @@ export class Home extends Component {
 
 
     renderSecondWordThirdLetterField = () => {
-        const {secondWordThirdLetter} = this.state
+        const {secondWordThirdLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (secondWordThirdLetter.toLocaleLowerCase() === wordsList[1].secondWord[2]){
             backgroundClassName = 'green-backkground'
@@ -271,7 +289,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeSecondWordThirdLetter}
                     value={secondWordThirdLetter}
                     type='text'
@@ -282,7 +300,8 @@ export class Home extends Component {
 
 
     renderSecondWordFourthLetterField = () => {
-        const {secondWordFourthLetter} = this.state
+        const {secondWordFourthLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (secondWordFourthLetter.toLocaleLowerCase() === wordsList[1].secondWord[3]){
             backgroundClassName = 'green-backkground'
@@ -294,7 +313,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeSecondWordFourthLetter}
                     value={secondWordFourthLetter}
                     type='text'
@@ -305,7 +324,8 @@ export class Home extends Component {
 
 
     renderSecondWordFifthLetterField = () => {
-        const {secondWordFifthLetter} = this.state
+        const {secondWordFifthLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (secondWordFifthLetter.toLocaleLowerCase() === wordsList[1].secondWord[4]){
             backgroundClassName = 'green-backkground'
@@ -317,7 +337,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeSecondWordFifthLetter}
                     value={secondWordFifthLetter}
                     type='text'
@@ -350,7 +370,8 @@ export class Home extends Component {
 
 
     renderThirdtWordFirstLetterField = () => {
-        const {thirdWordFirstLetter} = this.state
+        const {thirdWordFirstLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (thirdWordFirstLetter.toLocaleLowerCase() === wordsList[2].thirdWord[0]){
             backgroundClassName = 'green-backkground'
@@ -362,7 +383,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeThirdWordFirstLetter}
                     value={thirdWordFirstLetter}
                     type='text'
@@ -373,7 +394,8 @@ export class Home extends Component {
 
 
     renderThirdWordSecondLetterField = () => {
-        const {thirdWordSecondLetter} = this.state
+        const {thirdWordSecondLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (thirdWordSecondLetter.toLocaleLowerCase() === wordsList[2].thirdWord[1]){
             backgroundClassName = 'green-backkground'
@@ -385,7 +407,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeThirdWordSecondLetter}
                     value={thirdWordSecondLetter}
                     type='text'
@@ -396,7 +418,8 @@ export class Home extends Component {
 
 
     renderThirdtWordThirdLetterField = () => {
-        const {thirdWordThirdLetter} = this.state
+        const {thirdWordThirdLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (thirdWordThirdLetter.toLocaleLowerCase() === wordsList[2].thirdWord[2]){
             backgroundClassName = 'green-backkground'
@@ -408,7 +431,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeThirdWordThirdLetter}
                     value={thirdWordThirdLetter}
                     type='text'
@@ -419,7 +442,8 @@ export class Home extends Component {
 
 
     renderThirdWordFourthLetterField = () => {
-        const {thirdWordFourthLetter} = this.state
+        const {thirdWordFourthLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (thirdWordFourthLetter.toLocaleLowerCase() === wordsList[2].thirdWord[3]){
             backgroundClassName = 'green-backkground'
@@ -431,7 +455,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeThirdWordFourthLetter}
                     value={thirdWordFourthLetter}
                     type='text'
@@ -442,7 +466,8 @@ export class Home extends Component {
 
 
     renderThirdWordFifthLetterField = () => {
-        const {thirdWordFifthLetter} = this.state
+        const {thirdWordFifthLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (thirdWordFifthLetter.toLocaleLowerCase() === wordsList[2].thirdWord[4]){
             backgroundClassName = 'green-backkground'
@@ -454,7 +479,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeThirdWordFifthLetter}
                     value={thirdWordFifthLetter}
                     type='text'
@@ -484,7 +509,8 @@ export class Home extends Component {
     }
 
     renderFourthWordFirstLetterField = () => {
-        const {fourthWordFirstLetter} = this.state
+        const {fourthWordFirstLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (fourthWordFirstLetter.toLocaleLowerCase() === wordsList[3].fourthWord[0]){
             backgroundClassName = 'green-backkground'
@@ -496,7 +522,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFourthWordFirstLetter}
                     value={fourthWordFirstLetter}
                     type='text'
@@ -506,7 +532,8 @@ export class Home extends Component {
     }
 
     renderFourthWordSecondLetterField = () => {
-        const {fourthWordSecondLetter} = this.state
+        const {fourthWordSecondLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (fourthWordSecondLetter.toLocaleLowerCase() === wordsList[3].fourthWord[1]){
             backgroundClassName = 'green-backkground'
@@ -518,7 +545,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFourthWordSecondLetter}
                     value={fourthWordSecondLetter}
                     type='text'
@@ -529,7 +556,8 @@ export class Home extends Component {
 
 
     renderFourthWordThirdLetterField = () => {
-        const {fourthWordThirdLetter} = this.state
+        const {fourthWordThirdLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (fourthWordThirdLetter.toLocaleLowerCase() === wordsList[3].fourthWord[2]){
             backgroundClassName = 'green-backkground'
@@ -541,7 +569,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFourthWordThirdLetter}
                     value={fourthWordThirdLetter}
                     type='text'
@@ -551,7 +579,8 @@ export class Home extends Component {
     }
 
     renderFourthWordFourthLetterField = () => {
-        const {fourthWordFourthLetter} = this.state
+        const {fourthWordFourthLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (fourthWordFourthLetter.toLocaleLowerCase() === wordsList[3].fourthWord[3]){
             backgroundClassName = 'green-backkground'
@@ -563,7 +592,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFourthWordFourthLetter}
                     value={fourthWordFourthLetter}
                     type='text'
@@ -573,7 +602,8 @@ export class Home extends Component {
     }
 
     renderFourthWordFifthLetterField = () => {
-        const {fourthWordFifthLetter} = this.state
+        const {fourthWordFifthLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (fourthWordFifthLetter.toLocaleLowerCase() === wordsList[3].fourthWord[4]){
             backgroundClassName = 'green-backkground'
@@ -585,7 +615,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFourthWordFifthLetter}
                     value={fourthWordFifthLetter}
                     type='text'
@@ -615,7 +645,8 @@ export class Home extends Component {
     }
 
     renderFifthWordFirstLetterField = () => {
-        const {fifthWordFirstLetter} = this.state
+        const {fifthWordFirstLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (fifthWordFirstLetter.toLocaleLowerCase() === wordsList[4].fifthWord[0]){
             backgroundClassName = 'green-backkground'
@@ -627,7 +658,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFifthWordFirstLetter}
                     value={fifthWordFirstLetter}
                     type='text'
@@ -637,7 +668,8 @@ export class Home extends Component {
     }
 
     renderFifthWordSecondLetterField = () => {
-        const {fifthWordSecondLetter} = this.state
+        const {fifthWordSecondLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (fifthWordSecondLetter.toLocaleLowerCase() === wordsList[4].fifthWord[1]){
             backgroundClassName = 'green-backkground'
@@ -649,7 +681,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFifthWordSecondLetter}
                     value={fifthWordSecondLetter}
                     type='text'
@@ -659,7 +691,8 @@ export class Home extends Component {
     }
 
     renderFifthWordThirdLetterField = () => {
-        const {fifthWordThirdLetter} = this.state
+        const {fifthWordThirdLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (fifthWordThirdLetter.toLocaleLowerCase() === wordsList[4].fifthWord[2]){
             backgroundClassName = 'green-backkground'
@@ -671,7 +704,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFifthWordThirdLetter}
                     value={fifthWordThirdLetter}
                     type='text'
@@ -681,7 +714,8 @@ export class Home extends Component {
     }
 
     renderFifthWordFourthLetterField = () => {
-        const {fifthWordFourthLetter} = this.state
+        const {fifthWordFourthLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (fifthWordFourthLetter.toLocaleLowerCase() === wordsList[4].fifthWord[3]){
             backgroundClassName = 'green-backkground'
@@ -693,7 +727,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFifthWordFourthLetter}
                     value={fifthWordFourthLetter}
                     type='text'
@@ -703,7 +737,8 @@ export class Home extends Component {
     }
 
     renderFifthWordFifthLetterField = () => {
-        const {fifthWordFifthLetter} = this.state
+        const {fifthWordFifthLetter, toggleButton} = this.state
+        const toggleInput = toggleButton ? "dark-input" : "light-input"
         let backgroundClassName = 'transparent-background'
         if (fifthWordFifthLetter.toLocaleLowerCase() === wordsList[4].fifthWord[4]){
             backgroundClassName = 'green-backkground'
@@ -715,7 +750,7 @@ export class Home extends Component {
         return(
             <>
                 <input 
-                    className={`input ${backgroundClassName}`}
+                    className={`input ${backgroundClassName} ${toggleInput}`}
                     onChange={this.onChangeFifthWordFifthLetter}
                     value={fifthWordFifthLetter}
                     type='text'
@@ -771,9 +806,17 @@ export class Home extends Component {
 
 
   render() {
-    const {count} = this.state
+    const {count, toggleButton} = this.state
+    const background = toggleButton ? "Light_background" : "dark-background"
+    const toglesubmitButton = toggleButton ? 'dark-submit-button' : 'light-submit-button' 
+    const toggleAttempts = toggleButton ? "dark-attempt-color" : "light-attempt-color" 
     return (
-        <form className="home-form-container" onSubmit={this.onSubmitForm}>
+        <form className={`home-form-container ${background}`} onSubmit={this.onSubmitForm}>
+            <div className='button-container'>
+                <button type='button' className="togglebutton" onClick={this.onToggleButton}>
+                    {toggleButton ? <FaMoon className='dark-moon'/> : <MdOutlineWbSunny className='light-moon'/>}
+                    </button>
+            </div>
             <div className='words-container'>
                 <div>{this.renderFirstWordFirstLetterField()}</div>
                 <div>{this.renderFirstWordSecondLetterField()}</div>
@@ -813,8 +856,8 @@ export class Home extends Component {
                 <div>{this.renderFifthWordFifthLetterField()}</div>
             </div>
             <div className='button-count-container'>
-                <button onClick={this.onClickSubmitButton} className='button' type='submit'>Submit</button>
-                <p className='attempts'>Attempts: {count}</p>
+                <button onClick={this.onClickSubmitButton} className={`button ${toglesubmitButton}`} type='submit'>Submit</button>
+                <p className={`attempts ${toggleAttempts}`}>Attempts: {count}</p>
             </div>
            
         </form>

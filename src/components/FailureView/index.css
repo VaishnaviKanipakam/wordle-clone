@@ -35,6 +35,42 @@
     font-family: cursive;
 }
 
+.Light_background{
+    background-color: #F5F5F7;
+}
+
+.dark-background{
+    background-color: #000000;
+}
+
+.light-moon{
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.dark-moon{
+    color: #000000;
+    font-size: 25px;
+}
+
+.light-heading{
+    color: #ffffff;
+}
+
+.dark-heading{
+    color: #000000;
+}
+
+.light-tryagain-button{
+    border: 1.5px solid #ffffff;
+    color: #ffffff;
+}
+
+.dark-tryagain-button{
+    border: 1.5px solid #000000;
+    color: #000000;
+}
+
 @media screen and (max-width: 575px){
     .failure-view{
         height: 100vh;
